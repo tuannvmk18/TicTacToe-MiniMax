@@ -7,6 +7,5 @@ public class Main {
         Computer a = new Computer();
         b.Initialization();
         a.add_Action_with_Computer(b);
-
     }
 }

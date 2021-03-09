@@ -22,10 +22,11 @@ public class Board extends View implements Clear{
         btn = new JButton[3][3];
         grid = new GridLayout();
 
-        setDefaultCloseOperation(3);
-        setResizable(false);
-        setBounds(0, 0, super.Height, super.Weight);
-        setVisible(true);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+//        setResizable(false);
+//        setBounds(0, 0, super.Height, super.Weight);
+        setBounds(0, 0, super.Weight, super.Height);
+//        setVisible(true);
 
         for(int i = 0; i < 3; i++){
             for(int j = 0; j < 3; j++){
@@ -35,11 +36,10 @@ public class Board extends View implements Clear{
                 add(btn[i][j]);
             }
         }
-
-        setLayout(grid);
         grid.setColumns(3);
         grid.setRows(3);
-
+        setLayout(grid);
+        setVisible(true);
         clear();
     }
 
@@ -60,16 +60,6 @@ public class Board extends View implements Clear{
                 return true;
         }
         return false;
-    }
-
-    public boolean is_Draw(){
-        for(int i = 0; i < 3; i++){
-            for(int j = 0; j < 3; j++){
-                if(is_Empty(btn[i][j]))
-                    return false;
-            }
-        }
-        return is_Win(X_Player) || is_Win(O_Player);
     }
 
     public ArrayList<Point> get_EmptyButton(){
